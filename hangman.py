@@ -7,7 +7,17 @@ def hangman():
     valid_entry=set('abcdefghijklmnopqrstuvwxyz')
 
     while turns>=0:
-        main_word=""
+        main_word = ""
+        print("guess the word:")
+        guess = input()
+
+        if guess in valid_entry:
+            guessmade=guessmade+guess
+        else:
+            print("enter a valid character ")
+            guess=input()
+
+
         for letter in word:
             if letter in guessmade:
                 main_word=main_word+letter
@@ -18,14 +28,8 @@ def hangman():
             print(main_word)
             print("you won!")
             break
-        print("guess the word:",main_word)
-        guess=input()
 
-        if guess in valid_entry:
-            guessmade=guessmade+guess
-        else:
-            print("enter a valid character ")
-            guess=input()
+
         if guess not in word:
             turns=turns-1
 
